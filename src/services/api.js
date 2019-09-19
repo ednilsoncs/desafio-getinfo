@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://prossdev.herokuapp.com/',
+  baseURL: 'https://getinfo-api-frontend.herokuapp.com',
 });
 
 api.interceptors.request.use((req) => {
