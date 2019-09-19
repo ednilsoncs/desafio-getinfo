@@ -1,19 +1,18 @@
 import React, { useState } from 'react';
-import { toast } from 'react-toastify';
 import { api } from '../../services';
 
-function Login() {
+function Login(props) {
   const [form, setForm] = useState({
     email: '',
     password: '',
   });
-  const handleLogin = () => {
+  const handleLogin = async () => {
     console.log(form);
     try {
-      const { data } = api.post('/auth', form);
-      toast('senha/email errado');
+      await api.post('/auth', form);
+      props.history.push('/tarefas');
     } catch (e) {
-      toast('senha/email errado');
+      console.log(e);
     }
   };
   return (
