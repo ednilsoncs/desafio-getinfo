@@ -1,0 +1,55 @@
+// Overrides
+body {
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+.button {
+  line-height: 0;
+}
+.button {
+    transition: all 200ms ease;
+    text-transform: uppercase;
+    font-weight: 500;
+  
+    &.is-active,
+    &.is-focused,
+    &:active,
+    &:focus {
+      box-shadow: 0 0 0 2px rgba($button-focus-border-color, 0.25);
+    }
+    @each $name, $pair in $colors {
+      $color: nth($pair, 1);
+      $color-invert: nth($pair, 2);
+  
+      &.is-#{$name} {
+        &.is-active,
+        &.is-focused,
+        &:active,
+        &:focus {
+          border-color: $color;
+          box-shadow: 0 0 0 2px rgba($color, 0.25);
+        }
+      }
+    }
+  }
+ 
+ .Toastify__progress-bar {
+    background: $green !important;
+  }  
+
+  .Toastify__toast-body {
+    font-weight: 700;
+    padding: 0 20px;
+    color: $green;
+  }
+  
