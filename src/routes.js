@@ -9,7 +9,7 @@ export default function AppRoutes() {
     <Router>
       <Switch>
         <Route path="/" exact component={Login} />
-        <Route path="/tarefas" exact component={Tarefas} />
+        <Route path="/tarefas" component={Tarefas} />
       </Switch>
     </Router>
   );
