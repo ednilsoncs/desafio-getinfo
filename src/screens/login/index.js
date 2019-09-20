@@ -9,7 +9,6 @@ function Login(props) {
   });
   const [erro, setErro] = useState(false);
   const handleLogin = async () => {
-    console.log(form);
     try {
       const { data } = await api.post('/auth', form);
       localStorage.setItem('@TOKEN', data.token);
