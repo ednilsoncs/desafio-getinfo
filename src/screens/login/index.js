@@ -1,21 +1,25 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
+import ReactLoading from 'react-loading';
 import { api } from '../../services';
 
 function Login(props) {
   const [form, setForm] = useState({
-    email: '',
-    password: '',
+    email: 'frontend-project@getinfo.net.br',
+    password: '123456',
   });
+  const [loading, setLoading] = useState(false);
   const [erro, setErro] = useState(false);
   const handleLogin = async () => {
     try {
+      setLoading(true);
       const { data } = await api.post('/auth', form);
       localStorage.setItem('@TOKEN', data.token);
       props.history.push('/tarefas');
     } catch (e) {
       setErro(true);
     }
+    setLoading(false);
   };
   return (
     <div id="login-screen" className="hero is-fullheight">
@@ -55,7 +59,18 @@ function Login(props) {
                 <div>{erro && <p>senha ou login errado</p>}</div>
               </div>
             </div>
-            <button type="submit">Login</button>
+            {loading ? (
+              <ReactLoading
+                type="balls"
+                color="#006400"
+                height="20%"
+                width="10%"
+              />
+            ) : (
+              <button type="submit">
+                Login
+              </button>
+            )}
           </form>
         </div>
       </div>

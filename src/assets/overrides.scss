@@ -42,7 +42,34 @@ h6 {
       }
     }
   }
- 
+  .table {
+    td {
+      vertical-align: middle;
+      &.is-narrow {
+        white-space: nowrap;
+      }
+    }
+  }
+  .modal {
+    .modal-card {
+      border: 1.5px solid $dark;
+      .modal-card-head,
+      .modal-card-foot {
+        background: white;
+        border-radius: 2;
+        border: none;
+      }
+    }
+  }
+  
+  .card {
+    box-shadow: 0 0 0 1px $grey-lighter;
+  
+    .card-header {
+      box-shadow: 0 1px 0 0 $grey-lighter;
+    }
+  }
+  
  .Toastify__progress-bar {
     background: $green !important;
   }  
