@@ -21,7 +21,7 @@ function Main() {
 
   const renderActions = props => (
     <div className="buttons">
-      <Link to="tarefas/" className="button is-small is-primary">
+      <Link to={`tarefas/${props}/editar`} className="button is-small is-primary">
         Editar
       </Link>
       <Link to={`tarefas/${props}/remover`} className="button is-small is-primary">
