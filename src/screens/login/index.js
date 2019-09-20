@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { toast } from 'react-toastify';
 import { api } from '../../services';
 
 function Login(props) {
@@ -6,6 +7,7 @@ function Login(props) {
     email: '',
     password: '',
   });
+  const [erro, setErro] = useState(false);
   const handleLogin = async () => {
     console.log(form);
     try {
@@ -13,7 +15,7 @@ function Login(props) {
       localStorage.setItem('@TOKEN', data.token);
       props.history.push('/tarefas');
     } catch (e) {
-      console.log(e);
+      setErro(true);
     }
   };
   return (
@@ -51,6 +53,7 @@ function Login(props) {
                     }
                   />
                 </div>
+                <div>{erro && <p>senha ou login errado</p>}</div>
               </div>
             </div>
             <button type="submit">Login</button>

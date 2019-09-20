@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { api } from "../../../services";
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { api } from '../../../services';
 
 function Main() {
   const [tasks, setTasks] = useState({});
   const hangleGetTasks = async () => {
-    const { data } = await api.get("/tasks");
+    const { data } = await api.get('/tasks');
     console.log(data);
     setTasks(data);
   };
