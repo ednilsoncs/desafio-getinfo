@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import dayjs from 'dayjs';
 import App from './App';
+import './assets/styles.scss';
 import * as serviceWorker from './serviceWorker';
 
 dayjs.locale('pt-br');
