@@ -9,7 +9,8 @@ function Login(props) {
   const handleLogin = async () => {
     console.log(form);
     try {
-      await api.post('/auth', form);
+      const { data } = await api.post('/auth', form);
+      localStorage.setItem('@TOKEN', data.token);
       props.history.push('/tarefas');
     } catch (e) {
       console.log(e);
