@@ -1,18 +1,18 @@
-import React, { useState } from "react";
-import { api } from "../../../services";
+import React, { useState } from 'react';
+import { api } from '../../../services';
 
 function Main(props) {
   const {
-    history: { goBack, push }
+    history: { goBack, push },
   } = props;
   const [task, setTask] = useState({
-    task: ""
+    task: '',
   });
   const handleSave = async () => {
     console.log(task);
     try {
-      await api.post("tasks", task);
-      push("/tarefas");
+      await api.post('tasks', task);
+      push('/tarefas');
     } catch (e) {
       console.log(e);
     }

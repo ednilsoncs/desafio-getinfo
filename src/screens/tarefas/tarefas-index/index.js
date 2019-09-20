@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import ReactLoading from "react-loading";
-import { api } from "../../../services";
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import ReactLoading from 'react-loading';
+import { api } from '../../../services';
 
 function Main() {
   const [tasks, setTasks] = useState({
@@ -11,7 +11,7 @@ function Main() {
   const [loading, setLoading] = useState(false);
   const hangleGetTasks = async () => {
     setLoading(true);
-    const { data } = await api.get("/tasks");
+    const { data } = await api.get('/tasks');
     setTasks(data);
     setLoading(false);
   };
@@ -19,12 +19,12 @@ function Main() {
     hangleGetTasks();
   }, []);
 
-  const renderActions = (id = 0) => (
+  const renderActions = props => (
     <div className="buttons">
-      <Link to="/" className="button is-small is-primary">
+      <Link to="tarefas/" className="button is-small is-primary">
         Editar
       </Link>
-      <Link to="/" className="button is-small is-primary">
+      <Link to={`tarefas/${props}/remover`} className="button is-small is-primary">
         Excluir
       </Link>
     </div>
@@ -60,7 +60,7 @@ function Main() {
               tasks.rows.map(item => (
                 <tr>
                   <td>{item.task}</td>
-                  <td>{renderActions()}</td>
+                  <td>{renderActions(item.id)}</td>
                 </tr>
               ))
             )}
