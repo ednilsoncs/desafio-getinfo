@@ -28,11 +28,10 @@ function Main() {
     <main className="column">
       <div>
         <h1 className="sub-title is-0">Suas Tarefas Cadastradas</h1>
-        <h1 className="title">TASKS</h1>
         <div>
           <div className="level-right">
             <div>
-              <Link to="/tarefas/novo" className="button is-primary">
+              <Link to="/tarefas/nova" className="button is-primary">
                 Nova Tarefa
               </Link>
             </div>
@@ -43,9 +42,9 @@ function Main() {
             <th>titulo</th>
           </thead>
           <tbody>
-            {Array(9).map(item => (
+            {tasks.rows.map(item => (
               <tr>
-                <td>titulo</td>
+                <td>{item.task}</td>
                 <td>{renderActions()}</td>
               </tr>
             ))}
