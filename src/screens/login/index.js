@@ -61,7 +61,7 @@ function Login(props) {
             </div>
             {loading ? (
               <ReactLoading
-                type="balls"
+                type="spin"
                 color="#006400"
                 height="20%"
                 width="10%"

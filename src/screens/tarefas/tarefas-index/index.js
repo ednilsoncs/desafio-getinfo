@@ -1,13 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { api } from '../../../services';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import ReactLoading from "react-loading";
+import { api } from "../../../services";
 
 function Main() {
-  const [tasks, setTasks] = useState({});
+  const [tasks, setTasks] = useState({
+    count: 0,
+    rows: [],
+  });
+  const [loading, setLoading] = useState(false);
   const hangleGetTasks = async () => {
-    const { data } = await api.get('/tasks');
-    console.log(data);
+    setLoading(true);
+    const { data } = await api.get("/tasks");
     setTasks(data);
+    setLoading(false);
   };
   useEffect(() => {
     hangleGetTasks();
@@ -40,14 +46,24 @@ function Main() {
         <table className="table is-fullwidth is-hoverable">
           <thead>
             <th>titulo</th>
+            <th>ações</th>
           </thead>
           <tbody>
-            {tasks.rows.map(item => (
-              <tr>
-                <td>{item.task}</td>
-                <td>{renderActions()}</td>
-              </tr>
-            ))}
+            {loading ? (
+              <ReactLoading
+                type="spin"
+                color="#006400"
+                height="20%"
+                width="5%"
+              />
+            ) : (
+              tasks.rows.map(item => (
+                <tr>
+                  <td>{item.task}</td>
+                  <td>{renderActions()}</td>
+                </tr>
+              ))
+            )}
           </tbody>
         </table>
       </div>
