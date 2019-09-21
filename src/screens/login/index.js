@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { toast } from 'react-toastify';
 import ReactLoading from 'react-loading';
 import { api } from '../../services';
 
@@ -67,7 +66,7 @@ function Login(props) {
                 width="10%"
               />
             ) : (
-              <button type="submit">
+              <button className="button" type="submit">
                 Login
               </button>
             )}
