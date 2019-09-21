@@ -59,7 +59,7 @@ function Main(props) {
                 width="5%"
               />
             ) : (
-              <p> {task.task}</p>
+              <p className="description"> {task.task}</p>
             )}
           </div>
         </section>

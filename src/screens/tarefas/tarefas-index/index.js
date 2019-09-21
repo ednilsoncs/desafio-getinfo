@@ -11,8 +11,12 @@ function Main() {
   const [loading, setLoading] = useState(false);
   const hangleGetTasks = async () => {
     setLoading(true);
-    const { data } = await api.get('/tasks');
-    setTasks(data);
+    try {
+      const { data } = await api.get('/tasks');
+      setTasks(data);
+    } catch (e) {
+      console.log(e);
+    }
     setLoading(false);
   };
   useEffect(() => {
@@ -32,6 +36,14 @@ function Main() {
 
   return (
     <main className="column">
+      <div className="column">
+        <span>Bem vindo a suas Tarefas</span>
+        <span />
+        <br />
+        <Link to="/">
+          <button type="button">sair</button>
+        </Link>
+      </div>
       <div>
         <h1 className="sub-title is-0">Suas Tarefas Cadastradas</h1>
         <div>
