@@ -10,13 +10,15 @@ const actions = (store: Store) => ({
     store.setState({ TAREFAS: { ...TAREFAS, isLoading: true } });
     try {
       const { data } = await api.get('/tasks');
-      console.log(data);
+      
       store.setState({
         TAREFAS: {
           ...TAREFAS, rows: data.rows, count: data.count, isLoading: false,
         },
       });
     } catch (e) {
+      const token = localStorage.getItem('@TOKEN');
+      console.log(token);
       console.log(e);
     }
   },
