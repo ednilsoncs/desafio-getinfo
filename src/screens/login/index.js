@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 import ReactLoading from 'react-loading';
+import { connect } from 'unistore/react';
+import { authActions } from '../../store/actions';
+import type { State } from '../../store/types';
 import { api } from '../../services';
 
+const mapStateToProps = state => ({ state });
 function Login(props) {
+  const { state } = props;
   const [form, setForm] = useState({
     email: 'frontend-project@getinfo.net.br',
     password: '123456',
@@ -12,8 +17,7 @@ function Login(props) {
   const handleLogin = async () => {
     try {
       setLoading(true);
-      const { data } = await api.post('/auth', form);
-      localStorage.setItem('@TOKEN', data.token);
+      props.login(form);
       props.history.push('/tarefas');
     } catch (e) {
       setErro(true);
@@ -77,4 +81,7 @@ function Login(props) {
   );
 }
 
-export default Login;
+export default connect(
+  mapStateToProps,
+  authActions,
+)(Login);
