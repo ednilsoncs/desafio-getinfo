@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import ReactLoading from 'react-loading';
 import { connect } from 'unistore/react';
@@ -16,7 +17,7 @@ function Login(props) {
   const handleLogin = async () => {
     try {
       setLoading(true);
-      props.login(form);
+      await props.login(form);
       props.history.push('/tarefas');
     } catch (e) {
       setErro(true);

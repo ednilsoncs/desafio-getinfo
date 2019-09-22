@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // @flow
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
