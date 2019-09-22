@@ -1,26 +1,18 @@
+// @flow
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ReactLoading from 'react-loading';
+import { connect } from 'unistore/react';
+import { tarefasActions } from '../../../store/actions';
 import { api } from '../../../services';
+import type { State, TarefasState } from '../../../store/types';
 
-function Main() {
-  const [tasks, setTasks] = useState({
-    count: 0,
-    rows: [],
-  });
-  const [loading, setLoading] = useState(false);
-  const hangleGetTasks = async () => {
-    setLoading(true);
-    try {
-      const { data } = await api.get('/tasks');
-      setTasks(data);
-    } catch (e) {
-      console.log(e);
-    }
-    setLoading(false);
-  };
+const mapStateToProps = ({ TAREFAS }: State) => ({ TAREFAS });
+
+function Main(props: Props) {
+  const { TAREFAS, indexTarefas } = props;
   useEffect(() => {
-    hangleGetTasks();
+    indexTarefas();
   }, []);
 
   const renderActions = props => (
@@ -60,8 +52,9 @@ function Main() {
             <th>titulo</th>
             <th>ações</th>
           </thead>
+          {console.log(TAREFAS)}
           <tbody>
-            {loading ? (
+            {TAREFAS.isLoading ? (
               <ReactLoading
                 type="spin"
                 color="#006400"
@@ -69,7 +62,7 @@ function Main() {
                 width="5%"
               />
             ) : (
-              tasks.rows.map(item => (
+              TAREFAS.rows.map(item => (
                 <tr>
                   <td>{item.task}</td>
                   <td>{renderActions(item.id)}</td>
@@ -82,4 +75,4 @@ function Main() {
     </main>
   );
 }
-export default Main;
+export default connect(mapStateToProps, tarefasActions)(Main);
