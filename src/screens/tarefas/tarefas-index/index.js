@@ -1,10 +1,9 @@
 // @flow
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ReactLoading from 'react-loading';
 import { connect } from 'unistore/react';
 import { tarefasActions } from '../../../store/actions';
-import { api } from '../../../services';
 import type { State, TarefasState } from '../../../store/types';
 
 const mapStateToProps = ({ TAREFAS }: State) => ({ TAREFAS });
@@ -52,7 +51,6 @@ function Main(props: Props) {
             <th>titulo</th>
             <th>ações</th>
           </thead>
-          {console.log(TAREFAS)}
           <tbody>
             {TAREFAS.isLoading ? (
               <ReactLoading

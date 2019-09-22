@@ -3,14 +3,13 @@ import ReactLoading from 'react-loading';
 import { connect } from 'unistore/react';
 import { authActions } from '../../store/actions';
 import type { State } from '../../store/types';
-import { api } from '../../services';
 
 const mapStateToProps = state => ({ state });
 function Login(props) {
   const { state } = props;
   const [form, setForm] = useState({
-    email: 'frontend-project@getinfo.net.br',
-    password: '123456',
+    email: '',
+    password: '',
   });
   const [loading, setLoading] = useState(false);
   const [erro, setErro] = useState(false);

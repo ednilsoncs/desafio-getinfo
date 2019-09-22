@@ -9,7 +9,6 @@ function Main(props) {
     task: '',
   });
   const handleSave = async () => {
-    console.log(task);
     try {
       await api.post('tasks', task);
       push('/tarefas');

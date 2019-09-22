@@ -16,7 +16,6 @@ function Main(props) {
   const [loading, setLoading] = useState(false);
   const handleEditar = async () => {
     setLoading(true);
-    console.log(taski);
     try {
       const { data } = await api.put(`tasks/${id}`, { task: taski.task });
       push('/tarefas');
