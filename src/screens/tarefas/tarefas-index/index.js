@@ -2,6 +2,7 @@
 // @flow
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+
 import ReactLoading from 'react-loading';
 import { connect } from 'unistore/react';
 import { tarefasActions } from '../../../store/actions';
