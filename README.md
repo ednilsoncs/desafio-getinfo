@@ -10,7 +10,9 @@ Projeto desenvoldo usando React
 - Editar Tarefa
 - Excluir Tarefa
 
-## Executar o projeto: `npm start`
+## Scripts
+
+### `npm start`
 
 Para executar o site em desenvoldimento.<br>
 Caso não abra automaticamente use o link [http://localhost:3000](http://localhost:3000) para visualizar no navegador.
