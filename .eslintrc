@@ -4,11 +4,7 @@
     "es6": true
   },
   "parser": "babel-eslint",
-  "extends": [
-    "prettier",
-    "airbnb",
-    "plugin:flowtype/recommended",
-  ],
+  "extends": ["prettier", "airbnb", "plugin:flowtype/recommended"],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
@@ -20,18 +16,12 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "plugins": [
-    "react",
-    "flowtype"
-  ],
+  "plugins": ["react", "flowtype"],
   "rules": {
     "react/jsx-filename-extension": [
       "error",
       {
-        "extensions": [
-          ".js",
-          ".jsx"
-        ]
+        "extensions": [".js", ".jsx"]
       }
     ],
     "import/prefer-default-export": "off",
@@ -47,7 +37,7 @@
     "global-require": "off",
     "react-native/no-raw-text": "off",
     "react/prop-types": "off",
-    "max-len": "off",
+    "max-len": "off"
   },
   "settings": {
     "import/resolver": {

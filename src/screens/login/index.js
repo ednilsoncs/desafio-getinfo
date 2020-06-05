@@ -5,7 +5,7 @@ import { connect } from 'unistore/react';
 import { authActions } from '../../store/actions';
 import type { State } from '../../store/types';
 
-const mapStateToProps = state => ({ state });
+const mapStateToProps = (state) => ({ state });
 function Login(props) {
   const { state } = props;
   const [form, setForm] = useState({
@@ -41,7 +41,9 @@ function Login(props) {
                     type="text"
                     value={form.email}
                     placeholder="seu@email.com"
-                    onChange={e => setForm({ ...form, email: e.target.value })}
+                    onChange={(e) =>
+                      setForm({ ...form, email: e.target.value })
+                    }
                   />
                 </div>
               </div>
@@ -55,7 +57,8 @@ function Login(props) {
                     className="input"
                     type="password"
                     value={form.password}
-                    onChange={e => setForm({ ...form, password: e.target.value })
+                    onChange={(e) =>
+                      setForm({ ...form, password: e.target.value })
                     }
                   />
                 </div>
@@ -81,7 +84,4 @@ function Login(props) {
   );
 }
 
-export default connect(
-  mapStateToProps,
-  authActions,
-)(Login);
+export default connect(mapStateToProps, authActions)(Login);
